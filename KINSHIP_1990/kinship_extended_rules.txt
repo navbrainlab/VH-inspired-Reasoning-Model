@@ -1,0 +1,11 @@
+kinship_extended chain-only target relations:
+
+1) grandfather_chain(G, C) :- father(G, P), father(P, C)
+2) grandmother_chain(GM, C) :- mother(GM, P), father(P, C)
+3) paternal_uncle_chain(U, N) :- brother(U, P), father(P, N)
+4) maternal_aunt_chain(A, N) :- sister(A, P), mother(P, N)
+5) cousin_chain(X, Y) :- father(PX, X), sibling(PX, PY), father(PY, Y)
+
+Note:
+- Target relations above are NOT used as primitive facts anywhere else in the dataset.
+- They are intended to be inferable only from chain patterns.
